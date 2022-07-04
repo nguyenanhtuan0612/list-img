@@ -1,29 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'react-native';
-import Home from './src/components/Home';
-import Login from './src/components/Login';
-import Profile from './src/components/Profile';
+import Login from './src/components/Auth/Login';
 import Toast from 'react-native-toast-message';
-const Stack = createNativeStackNavigator();
+import Main from './src/components/Screen/Main';
+import ListImage from './src/components/Screen/ListImage';
 
-const config = {
-    animation: 'spring',
-    config: {
-        stiffness: 1000,
-        damping: 500,
-        mass: 3,
-        overshootClamping: true,
-        restDisplacementThreshold: 0.01,
-        restSpeedThreshold: 0.01,
-    },
-};
+const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (
         <>
             <NavigationContainer>
-                <StatusBar barStyle="light-content" />
+                <StatusBar barStyle="dark-content" backgroundColor="white" />
                 <Stack.Navigator>
                     <Stack.Screen
                         name="Login"
@@ -34,17 +23,22 @@ export default function App() {
                         }}
                     />
                     <Stack.Screen
-                        name="Home"
-                        component={Home}
+                        name="Main"
+                        component={Main}
                         options={{
+                            headerShown: false,
                             animation: 'slide_from_right',
                         }}
                     />
                     <Stack.Screen
-                        name="Profile"
-                        component={Profile}
-                        options={{
-                            animation: 'slide_from_right',
+                        name="ListImage"
+                        component={ListImage}
+                        options={({ route }) => {
+                            const params: any = route.params;
+                            return {
+                                animation: 'slide_from_right',
+                                title: params.dicName,
+                            };
                         }}
                     />
                 </Stack.Navigator>

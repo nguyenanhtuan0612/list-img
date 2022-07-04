@@ -13,4 +13,18 @@ export default {
             throw error;
         }
     },
+
+    async get(url: string, token?: string) {
+        try {
+            const res = await axios.get(url, {
+                headers: {
+                    authorization: token ? 'Bearer ' + token : '',
+                },
+            });
+
+            return res;
+        } catch (error) {
+            throw error;
+        }
+    },
 };

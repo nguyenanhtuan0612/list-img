@@ -6,8 +6,8 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import { services, toast } from '../helpers';
-import { Props } from '../navigate/props';
+import { services, toast } from '../../helpers';
+import { Props } from '../../navigate/props';
 
 export default function Login({ navigation }: Props) {
     const [username, setUsername] = useState('');
@@ -17,7 +17,7 @@ export default function Login({ navigation }: Props) {
         try {
             const res = await services.login(username, password);
             if (res.data) {
-                navigation.navigate('Home');
+                navigation.navigate('Main');
             }
         } catch (error: any) {
             if (error.response.status && error.response.status == 401) {
