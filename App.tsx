@@ -5,8 +5,10 @@ import Login from './src/components/Auth/Login';
 import Toast from 'react-native-toast-message';
 import Main from './src/components/Screen/Main';
 import ListImage from './src/components/Screen/ListImage';
+import { RootStackParamList } from './src/navigate/props';
+import ViewImage from './src/components/Screen/ViewImage';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
     return (
@@ -33,13 +35,18 @@ export default function App() {
                     <Stack.Screen
                         name="ListImage"
                         component={ListImage}
-                        options={({ route }) => {
-                            const params: any = route.params;
-                            return {
-                                animation: 'slide_from_right',
-                                title: params.dicName,
-                            };
-                        }}
+                        options={({ route }) => ({
+                            animation: 'slide_from_right',
+                            title: route.params.dicName,
+                        })}
+                    />
+                    <Stack.Screen
+                        name="ViewImage"
+                        component={ViewImage}
+                        options={({ route }) => ({
+                            animation: 'slide_from_right',
+                            title: route.params.imgName,
+                        })}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

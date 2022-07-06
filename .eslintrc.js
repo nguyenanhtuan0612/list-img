@@ -33,6 +33,7 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/no-unsafe-argument': 'off',
+        'react-hooks/exhaustive-deps': 'off',
     },
     settings: {
         react: {

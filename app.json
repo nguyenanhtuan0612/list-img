@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "list-img-react-native",
+    "name": "List Image",
     "slug": "list-img-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.infinitea.listimg"
     },
     "web": {
       "favicon": "./assets/favicon.png"

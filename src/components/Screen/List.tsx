@@ -1,5 +1,4 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     ActivityIndicator,
     FlatList,
@@ -33,7 +32,6 @@ export default function List({ navigation }: Props) {
         async function fetch() {
             setLoading(true);
             await getListDic();
-
             setLoading(false);
         }
 
@@ -135,12 +133,5 @@ const styles = StyleSheet.create({
     nameView: {
         flexDirection: 'row',
         alignItems: 'center',
-    },
-    h1: {
-        marginTop: 16,
-        marginBottom: 14,
-        fontWeight: '600',
-        fontSize: 24,
-        color: '#4E0189',
     },
 });
